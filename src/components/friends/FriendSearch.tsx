@@ -121,7 +121,7 @@ export default function FriendSearch({ user }: FriendSearchProps) {
                 <div key={result.id} className="flex items-center justify-between p-4 border rounded-lg">
                   <div className="flex items-center space-x-3">
                     <Avatar className="h-10 w-10">
-                      <AvatarImage src={result.avatar_url} alt={result.display_name} />
+                      <AvatarImage src={result.avatar_url || undefined} alt={result.display_name || ''} />
                       <AvatarFallback>
                         {result.display_name?.charAt(0) || result.email.charAt(0)}
                       </AvatarFallback>
