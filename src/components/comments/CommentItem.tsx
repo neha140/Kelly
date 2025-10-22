@@ -140,7 +140,7 @@ export default function CommentItem({
   return (
     <div className="flex space-x-3">
       <Avatar className="h-8 w-8">
-        <AvatarImage src={comment.user.avatar_url} alt={comment.user.display_name} />
+        <AvatarImage src={comment.user.avatar_url || undefined} alt={comment.user.display_name || ''} />
         <AvatarFallback>
           {comment.user.display_name?.charAt(0) || comment.user.email.charAt(0)}
         </AvatarFallback>

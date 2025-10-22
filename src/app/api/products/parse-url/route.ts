@@ -58,6 +58,9 @@ async function extractProductInfo(url: string): Promise<ProductData> {
   
   // Try to fetch the page content for real extraction
   try {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000) // 10 second timeout
+    
     const response = await fetch(url, {
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
@@ -68,8 +71,10 @@ async function extractProductInfo(url: string): Promise<ProductData> {
         'Upgrade-Insecure-Requests': '1',
         'Cache-Control': 'no-cache',
       },
-      timeout: 10000 // 10 second timeout
+      signal: controller.signal
     })
+    
+    clearTimeout(timeoutId)
 
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`)

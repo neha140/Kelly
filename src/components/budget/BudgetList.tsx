@@ -129,7 +129,7 @@ export default function BudgetList({ user }: BudgetListProps) {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <Avatar className="h-10 w-10">
-                      <AvatarImage src={budget.friend.avatar_url} alt={budget.friend.display_name} />
+                      <AvatarImage src={budget.friend.avatar_url || undefined} alt={budget.friend.display_name || ''} />
                       <AvatarFallback>
                         {budget.friend.display_name?.charAt(0) || budget.friend.email.charAt(0)}
                       </AvatarFallback>
