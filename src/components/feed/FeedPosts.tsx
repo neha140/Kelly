@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Button } from '@/components/ui/button'
 import { Heart, MessageCircle, Share } from 'lucide-react'
+import { toast } from 'sonner'
 import CommentSection from '@/components/comments/CommentSection'
 
 interface FeedPostsProps {

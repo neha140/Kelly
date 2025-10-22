@@ -88,7 +88,7 @@ export default function CreatePost({ user, profile }: CreatePostProps) {
           
           {/* Image Upload */}
           <ImageUpload
-            currentImageUrl={imageUrl}
+            currentImageUrl={imageUrl || undefined}
             onImageUploaded={setImageUrl}
             onImageRemoved={() => setImageUrl(null)}
             bucket="post-images"
