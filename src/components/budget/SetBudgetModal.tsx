@@ -10,7 +10,9 @@ import { Plus, DollarSign } from 'lucide-react'
 import { toast } from 'sonner'
 import { createClient } from '@/lib/supabase/client'
 
-interface SetBudgetModalProps {}
+interface SetBudgetModalProps {
+  onBudgetSet?: () => void
+}
 
 interface Friend {
   id: string
