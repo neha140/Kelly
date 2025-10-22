@@ -63,13 +63,14 @@ export default function FriendsList({ user }: FriendsListProps) {
           const isRequester = friendship.requester_id === user.id
           const friendProfile = isRequester ? friendship.addressee : friendship.requester
           
-          if (friendProfile) {
+          if (friendProfile && typeof friendProfile === 'object' && 'id' in friendProfile) {
+            const profile = friendProfile as any
             friendsList.push({
-              id: friendProfile.id,
-              display_name: friendProfile.display_name,
-              avatar_url: friendProfile.avatar_url,
-              email: friendProfile.email,
-              bio: friendProfile.bio,
+              id: profile.id,
+              display_name: profile.display_name,
+              avatar_url: profile.avatar_url,
+              email: profile.email,
+              bio: profile.bio,
               friendship_id: friendship.id,
               created_at: friendship.created_at
             })
